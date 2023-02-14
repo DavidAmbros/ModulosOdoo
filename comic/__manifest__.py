@@ -9,7 +9,7 @@ Gestor de bibliotecas (Version Simple)
 
     #Indicamos que es una aplicación
     'application': True,
-    'author': "DAMB",
+    'author': "David",
     'website': "http://iesjoanramis.org",
     'category': 'Tools',
     'version': '0.1',
@@ -24,7 +24,9 @@ Gestor de bibliotecas (Version Simple)
         'security/groups.xml',
         'security/ir.model.access.csv',
         #Cargamos la vista de la biblioteca de comics
-        'views/biblioteca_comic.xml'
+        'views/biblioteca_comic.xml',
+        'views/socios.xml',
+        'views/prestados.xml'
     ],
     # Fichero con data de demo si se inicializa la base de datos con "demo data" (No incluido en ejemplo)
     # 'demo': [

@@ -3,7 +3,7 @@
 
     <!-- Definimos como mostramos la vista en el modelo -->
     <record id='biblioteca_comic_action' model='ir.actions.act_window'>
-        <field name="name">Comics David</field>
+        <field name="name">Biblioteca de Comics</field>
         <!-- Indicamos a que modelo aplica -->
         <field name="res_model">biblioteca.comic</field>
         <!-- Indicamos que los comics pueden verse en tree para el listado,
@@ -18,7 +18,7 @@
     <!-- Definición de la Vista formulario -->
     <record id="biblioteca_comic_view_form" model="ir.ui.view">
         <field name="name">Formulario de Comic de la biblioteca</field>
-        <field name="model">biblioteca.comic</field>
+		<field name="model">biblioteca.comic</field>
         <field name="arch" type="xml">
             <form>
                 <!-- Creamos un boton "archivar". 
@@ -31,7 +31,8 @@
                 </header>
                 <group>
                     <group>
-                        <field name="nombre"/>
+						<field name="nombre"/>
+						<field name="isbn"/>
                         <!-- Utilizamos el Widget "many2many_tags" para que la relación
                             muchos a muchos se vea en la interfaz como etiquetas -->
                         <field name="autor_ids" widget="many2many_tags"/>
@@ -65,7 +66,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="nombre"/>
-                <field name="fecha_publicacion"/>                        
+				<field name="isbn"/>
+				<field name="fecha_publicacion"/>                        
                 <field name="estado"/>
             </tree>
         </field>
@@ -74,16 +76,16 @@
     <!-- Definición de la vista busqueda-->
     <record id="biblioteca_comic_view_search" model="ir.ui.view">
         <field name="name">Búsqueda de Comics en la biblioteca</field>
-        <field name="model">biblioteca.comic</field>
+		<field name="model">biblioteca.comic</field>
         <field name="arch" type="xml">
             <search>
                 <field name="nombre"/>
-                <field name="autor_ids"/>
+				<field name="isbn"/>
+				<field name="autor_ids"/>
                 <!-- Indicamos que para si filtramos por los del dominio "autor_ids=false" 
                 se muestre el texto "Sin autor"-->
                 <filter string="Sin autor" name="sin_autor" domain="[('autor_ids','=',False)]"/>
             </search>
         </field>
     </record>
-
 </odoo>
