@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definición de la vista Tree -->
+    <record id="hospital_diagnostico_view_tree" model="ir.ui.view">
+        <field name="name">Lista de diagnosticos</field>
+        <field name="model">hospital.diagnostico</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="paciente"/>
+				<field name="medico"/>
+                <field name="diagnostico"/>                            
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='hospital_diagnostico_action' model='ir.actions.act_window'>
+        <field name="name">Diagnostico</field>
+        <field name="res_model">hospital.diagnostico</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hospital_diagnostico_view_tree" />
+    </record>
+
+    <record id="hospital_diagnostico_view_form" model="ir.ui.view">
+        <field name="name">Formulario de diagnosticos de la hospital</field>
+		<field name="model">hospital.diagnostico</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+					<field name="paciente"/>
+                    <field name="medico"/>
+                    <field name="diagnostico"/>                        
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Diagnosticos" id="hospital_diagnostico_menu" parent="hospital_base_menu" action="hospital_diagnostico_action"/>
+
+</odoo>

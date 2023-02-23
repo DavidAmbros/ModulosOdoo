@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definición de la vista Tree -->
+    <record id="hospital_paciente_view_tree" model="ir.ui.view">
+        <field name="name">Lista de pacientes</field>
+        <field name="model">hospital.paciente</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+				<field name="apellidos"/>
+				<field name="simptomas"/>                        
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='hospital_paciente_action' model='ir.actions.act_window'>
+        <field name="name">Paciente</field>
+        <field name="res_model">hospital.paciente</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hospital_paciente_view_tree" />
+    </record>
+
+    <record id="hospital_paciente_view_form" model="ir.ui.view">
+        <field name="name">Formulario de paciente</field>
+		<field name="model">hospital.paciente</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+					<field name="nombre"/>
+					<field name="apellidos"/>
+                    <field name="simptomas"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <!-- <menuitem name="Pacientes" id="hospital_paciente_menu" parent="hospital_base_menu" action="hospital_paciente_action"/> -->
+      <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Hospital Epico" id="hospital_base_menu" />
+    <menuitem name="Pacientes" id="hospital_paciente_menu" parent="hospital_base_menu" action="hospital_paciente_action"/>
+
+
+</odoo>
